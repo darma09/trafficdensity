@@ -22,8 +22,8 @@ def detect_objects(image):
     image_path = "images/uploaded_image.jpg"
     image.save(image_path)
     
-    # Muat model YOLOv5
-    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', source='local')
+    # Muat model YOLOv5 dari GitHub
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', source='github')
     
     # Lakukan inferensi
     results = model(image_path)

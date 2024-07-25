@@ -5,20 +5,23 @@ import numpy as np
 import os
 
 def detect_objects(image):
-    # Save the uploaded image to a file
+    # Pastikan direktori 'images' ada
+    os.makedirs('images', exist_ok=True)
+
+    # Simpan gambar yang diunggah ke file
     image_path = "images/uploaded_image.jpg"
     image.save(image_path)
     
-    # Load YOLOv5 model
+    # Muat model YOLOv5
     model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
     
-    # Perform inference
+    # Lakukan inferensi
     results = model(image_path)
     
-    # Save results
+    # Simpan hasil
     results.save()
     
-    # Extract and count detections
+    # Ekstrak dan hitung deteksi
     detections = results.pandas().xyxy[0]
     counts = {'motorcycle': 0, 'car': 0, 'person': 0}
     for _, row in detections.iterrows():
@@ -27,7 +30,7 @@ def detect_objects(image):
     
     return counts, os.path.join('runs/detect/exp', os.path.basename(image_path))
 
-# Streamlit interface
+# Antarmuka Streamlit
 st.title("Traffic Density Detection using YOLOv5")
 st.write("Upload an image and the model will detect and count motorcycles, cars, and pedestrians.")
 

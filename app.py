@@ -3,14 +3,16 @@ import torch
 from PIL import Image
 import numpy as np
 import os
+import shutil
 
 def detect_objects(image):
     # Pastikan direktori 'images' ada dan kosongkan jika ada file sebelumnya
-    if not os.path.exists('images'):
-        os.makedirs('images')
-    else:
-        for f in os.listdir('images'):
-            os.remove(os.path.join('images', f))
+    if os.path.exists('images'):
+        if os.path.isfile('images'):
+            os.remove('images')
+        else:
+            shutil.rmtree('images')
+    os.makedirs('images')
 
     # Simpan gambar yang diunggah ke file
     image_path = "images/uploaded_image.jpg"

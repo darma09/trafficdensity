@@ -1,6 +1,6 @@
-# Deteksi Objek Menggunakan YOLOv5
+# Traffic Density Detection using YOLOv5
 
-Proyek ini menggunakan YOLOv5 untuk mendeteksi objek seperti motor, mobil, dan pejalan kaki dalam gambar lalu lintas.
+Proyek ini menggunakan YOLOv5 untuk mendeteksi objek seperti motor, mobil, dan pejalan kaki dalam gambar lalu lintas, dan menampilkan hasilnya menggunakan Streamlit.
 
 ## Instalasi
 
@@ -24,13 +24,13 @@ Proyek ini menggunakan YOLOv5 untuk mendeteksi objek seperti motor, mobil, dan p
 
 ## Penggunaan
 
-1. Letakkan gambar dalam folder `images/`.
-2. Jalankan skrip deteksi:
+1. Jalankan aplikasi Streamlit:
     ```bash
-    python detect.py --source images/your_image.jpg
+    streamlit run app.py
     ```
 
-Hasil deteksi akan disimpan dalam folder `runs/detect/`.
+2. Unggah gambar untuk deteksi.
+3. Hasil deteksi akan ditampilkan di browser.
 
 ## File yang Dibutuhkan
 - Gambar untuk deteksi dalam folder `images/`.

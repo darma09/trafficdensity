@@ -1,9 +1,9 @@
-import os
 import streamlit as st
 import torch
 from PIL import Image
 import numpy as np
 import shutil
+import os
 
 # Instal OpenGL library
 os.system('apt-get update')
@@ -23,7 +23,7 @@ def detect_objects(image):
     image.save(image_path)
     
     # Muat model YOLOv5
-    model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', source='local')
     
     # Lakukan inferensi
     results = model(image_path)

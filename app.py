@@ -5,8 +5,12 @@ import numpy as np
 import os
 
 def detect_objects(image):
-    # Pastikan direktori 'images' ada
-    os.makedirs('images', exist_ok=True)
+    # Pastikan direktori 'images' ada dan kosongkan jika ada file sebelumnya
+    if not os.path.exists('images'):
+        os.makedirs('images')
+    else:
+        for f in os.listdir('images'):
+            os.remove(os.path.join('images', f))
 
     # Simpan gambar yang diunggah ke file
     image_path = "images/uploaded_image.jpg"

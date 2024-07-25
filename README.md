@@ -1,4 +1,4 @@
-# Traffic Density Detection using YOLOv5
+# Traffic Density Detection using YOLOv5 By Darma09
 
 Proyek ini menggunakan YOLOv5 untuk mendeteksi objek seperti motor, mobil, dan pejalan kaki dalam gambar lalu lintas, dan menampilkan hasilnya menggunakan Streamlit.
 

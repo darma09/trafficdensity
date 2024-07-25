@@ -1,14 +1,13 @@
 import os
-
-# Instal library yang diperlukan
-os.system('apt-get update')
-os.system('apt-get install -y libgl1-mesa-glx')
-
 import streamlit as st
 import torch
 from PIL import Image
 import numpy as np
 import shutil
+
+# Instal OpenGL library
+os.system('apt-get update')
+os.system('apt-get install -y libgl1-mesa-glx')
 
 def detect_objects(image):
     # Pastikan direktori 'images' ada dan kosongkan jika ada file sebelumnya

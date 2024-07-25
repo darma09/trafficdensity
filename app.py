@@ -5,25 +5,20 @@ import numpy as np
 import shutil
 import os
 
-# Instal OpenGL library
-os.system('apt-get update')
-os.system('apt-get install -y libgl1-mesa-glx')
-
 def detect_objects(image):
     # Pastikan direktori 'images' ada dan kosongkan jika ada file sebelumnya
-    if os.path.exists('images'):
-        if os.path.isfile('images'):
-            os.remove('images')
-        else:
-            shutil.rmtree('images')
-    os.makedirs('images')
+    if not os.path.exists('images'):
+        os.makedirs('images')
+    else:
+        for f in os.listdir('images'):
+            os.remove(os.path.join('images', f))
 
     # Simpan gambar yang diunggah ke file
     image_path = "images/uploaded_image.jpg"
     image.save(image_path)
     
     # Muat model YOLOv5 dari GitHub
-    model = torch.hub.load('ultralytics/yolov5', 'yolov5s', source='github')
+    model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
     
     # Lakukan inferensi
     results = model(image_path)

@@ -1,3 +1,6 @@
+git clone https://github.com/ultralytics/yolov5.git
+cp -r yolov5 models
+
 import streamlit as st
 import torch
 from PIL import Image

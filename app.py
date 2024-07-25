@@ -1,8 +1,13 @@
+import os
+
+# Instal library yang diperlukan
+os.system('apt-get update')
+os.system('apt-get install -y libgl1-mesa-glx')
+
 import streamlit as st
 import torch
 from PIL import Image
 import numpy as np
-import os
 import shutil
 
 def detect_objects(image):
